@@ -5,6 +5,7 @@ semantic_models:
     description: |
       Order fact table. This table is at the order grain with one row per order.
     model: ref('fct_orders')
+
     entities:
       - name: order_id
         type: primary
@@ -14,6 +15,7 @@ semantic_models:
       - name: customer
         type: foreign
         expr: customer_id
+    
     dimensions:
       - name: ordered_at
         expr: date_trunc('day', ordered_at)
