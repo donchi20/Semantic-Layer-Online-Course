@@ -1,23 +1,22 @@
 with 
-
+-- get order items
 order_items as (
 
     select * from {{ ref('stg_order_items') }}
 
 ),
-
-
+-- get orders
 orders as (
     
     select * from {{ ref('stg_orders')}}
 ),
-
+-- get products info
 products as (
 
     select * from {{ ref('stg_products') }}
 
 ),
-
+-- get supplies info
 supplies as (
 
   select * from {{ ref('stg_supplies') }}

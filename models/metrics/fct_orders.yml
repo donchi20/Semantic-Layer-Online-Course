@@ -1,3 +1,4 @@
+
 semantic_models:
   - name: orders
     defaults:
@@ -22,9 +23,11 @@ semantic_models:
         type: time
         type_params:
           time_granularity: day
+
       - name: order_total_dim
         type: categorical
         expr: order_total
+        
       - name: is_food_order
         type: categorical
 
@@ -32,20 +35,25 @@ semantic_models:
       - name: order_total
         description: The total amount for each order including taxes.
         agg: sum
+
       - name: order_count
         expr: 1
         agg: sum
+
       - name: tax_paid
         description: The total tax paid on each order.
         agg: sum
+
       - name: customers_with_orders
         description: Distinct count of customers placing orders
         agg: count_distinct
         expr: customer_id
+
       - name: locations_with_orders
         description: Distinct count of locations with order
         expr: location_id
         agg: count_distinct
+
       - name: order_cost
         description: The cost for each order item. Cost is calculated as a sum of the supply cost for each order item.
         agg: sum

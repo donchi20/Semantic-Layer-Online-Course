@@ -1,3 +1,4 @@
+
 semantic_models:
   - name: order_item
     defaults:
@@ -5,6 +6,7 @@ semantic_models:
     description: |
       Items contatined in each order. The grain of the table is one row per order item.
     model: ref('order_items')
+
     entities:
       - name: order_item
         type: primary
@@ -15,6 +17,7 @@ semantic_models:
       - name: product
         type: foreign
         expr: product_id
+
     dimensions:
       - name: ordered_at
         expr: date_trunc('day', ordered_at)
@@ -25,6 +28,7 @@ semantic_models:
         type: categorical
       - name: is_drink_item
         type: categorical
+        
     measures:
       - name: revenue
         description: The revenue generated for each order item. Revenue is calculated as a sum of revenue associated with each product in an order.
